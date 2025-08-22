@@ -5,7 +5,7 @@ export default defineConfig({
   timeout: 30 * 1000,
   retries: 1,
   use: {
-    baseURL: 'http://localhost:5173', // Replace with your app URL
+    baseURL: 'https://resources-xi.vercel.app/resources',
     headless: true,
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
