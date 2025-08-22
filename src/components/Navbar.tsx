@@ -3,9 +3,11 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Switch } from "@chakra-ui/react";
+import { useNavbar } from "../context/NavbarContext";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { toggle, setToggle } = useNavbar();
 
   // nav style
   const linkClasses = ({ isActive }: { isActive: boolean }) =>
@@ -44,10 +46,21 @@ export default function Navbar() {
         {/* Right side */}
         <div className="flex items-center justify-end gap-4 h-full pb-2">
           <div className="flex items-center gap-2">
-            <Switch />
+            <Switch
+              checked={toggle}
+              onChange={(e) => setToggle(e.target.checked)}
+            />
 
             <span className="hidden md:block text-sm font-semibold text-gray-800 ">
-              Switch to Employee
+              {toggle ? (
+                <div className="flex items-center gap-1 ">
+                  <p className="hidden lg:block">Switch to</p> Admin
+                </div>
+              ) : (
+                <div className="flex items-center gap-1 ">
+                  <p className="hidden lg:block">Switch to</p> Employee
+                </div>
+              )}
             </span>
           </div>
 

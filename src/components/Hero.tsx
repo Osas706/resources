@@ -19,7 +19,9 @@ function Hero() {
             type="text"
             placeholder="Search by title or keyword"
             size="lg"
-            className="!border-none"
+            border="none"
+            focusBorderColor="transparent"
+            _focus={{ boxShadow: "none" }}
           />
         </div>
       </div>
